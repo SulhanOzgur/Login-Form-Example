@@ -7,20 +7,27 @@ import "./components/Layout.css";
 import { Container } from "reactstrap";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import Success from "./components/Success.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
 
 function App() {
   return (
-   <>
+    <Router>
       <Header content="WiStore Products" />
 
       <Container>
-        <Login />
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/success" component={Success} />
+          <Route path="/error" component={ErrorPage} />
+        </Switch>
       </Container>
 
       <Footer content="Copyright @ 2023" />
-    </>
+    </Router>
   );
 }
 
 export default App;
+
 
